@@ -11,6 +11,7 @@ body {
 	text-align: center;
 	background: linear-gradient(to bottom, #6ab7f5, #fff);
 	min-height: 100vh;
+	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=14474), auto;
 }
 
 main {
@@ -94,5 +95,5 @@ main {
 }
 
 .btn:hover {
-	cursor: pointer;
+	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=14474), auto;
 }
