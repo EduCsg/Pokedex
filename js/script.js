@@ -5,6 +5,9 @@ const pokemonImage = document.querySelector(".pokemon_image");
 const form = document.querySelector(".form");
 const input = document.querySelector(".input_search");
 
+const btnNext = document.querySelector(".btn_next");
+const btnPrev = document.querySelector(".btn_prev");
+
 let searchPokemon = 1;
 
 const fetchPokemon = async (pokemon) => {
@@ -28,6 +31,7 @@ const renderPokemon = async (pokemon) => {
 		pokemonImage.style.display = "block";
 		pokemonNumber.innerHTML = data.id;
 		pokemonName.innerHTML = `- ${data.name}`;
+		searchPokemon = data.id;
 
 		const imgSrcAnimated =
 			data.sprites.versions["generation-v"]["black-white"].animated[
@@ -52,6 +56,20 @@ const renderPokemon = async (pokemon) => {
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 	renderPokemon(input.value.toLowerCase());
+});
+
+btnPrev.addEventListener("click", () => {
+	if (searchPokemon > 1) {
+		searchPokemon--;
+		renderPokemon(searchPokemon);
+	} else {
+		return;
+	}
+});
+
+btnNext.addEventListener("click", () => {
+	searchPokemon++;
+	renderPokemon(searchPokemon);
 });
 
 renderPokemon(searchPokemon);
